@@ -1,0 +1,8 @@
+[submodule "embassy"]
+	path = embassy
+	url = https://github.com/jeremydub/embassy.git
+    branch = tsch-milestone1
+[submodule "dot15d4"]
+	path = dot15d4
+	url = https://github.com/jeremydub/dot15d4.git
+    branch = tsch-milestone1
