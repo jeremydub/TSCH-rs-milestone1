@@ -510,6 +510,37 @@ In a second terminal, run the following command to compile & run the firmware on
 ADDRESS=2 cargo run --release --bin ieee802154-udp
 ```
 
+**Experience Outputs**
+
+From Receiver perspective :
+
+```
+0.000579        INFO     Network task initialized
+0.000823        INFO     link_up = true
+4.568969        INFO     Received Text : Hello, World !
+4.569061        INFO     Echoing back message "Hello, World !"
+5.085418        INFO     Received Text : Hello, World !
+5.085510        INFO     Echoing back message "Hello, World !"
+5.601867        INFO     Received Text : Hello, World !
+5.601959        INFO     Echoing back message "Hello, World !"
+6.118316        INFO     Received Text : Hello, World !
+6.118408        INFO     Echoing back message "Hello, World !"
+```
+From Sender perspective :
+
+```
+0.000579	INFO 	Network task initialized
+0.000793	INFO 	Sending message "Hello, World !"
+0.001098	INFO 	link_up = true
+0.026550	INFO 	Received Text Response : Hello, World !
+0.526641	INFO 	Sending message "Hello, World !"
+0.540069	INFO 	Received Text Response : Hello, World !
+1.040130	INFO 	Sending message "Hello, World !"
+1.053558	INFO 	Received Text Response : Hello, World !
+1.553619	INFO 	Sending message "Hello, World !"
+1.567047	INFO 	Received Text Response : Hello, World !
+```
+
 ### Running the variant
 
 
@@ -525,6 +556,35 @@ ADDRESS=1 cargo run --release --bin ieee802154-udp-fast
 
 ```sh
 ADDRESS=2 cargo run --release --bin ieee802154-udp-fast
+```
+
+**Experience Output**
+
+From the sender perspective, we can observe that it is able to send 1 packet exactly every 10 ms (i.e. 100 packets every second)
+
+```
+0.000640	INFO 	Network task initialized
+0.001190	INFO 	link_up = true
+1.000915	INFO 	Sent 100 packets
+2.000915	INFO 	Sent 200 packets
+3.000915	INFO 	Sent 300 packets
+4.000915	INFO 	Sent 400 packets
+5.000915	INFO 	Sent 500 packets
+6.000915	INFO 	Sent 600 packets
+7.000915	INFO 	Sent 700 packets
+8.000915	INFO 	Sent 800 packets
+9.000915	INFO 	Sent 900 packets
+10.000915	INFO 	Sent 1000 packets
+11.000915	INFO 	Sent 1100 packets
+12.000915	INFO 	Sent 1200 packets
+13.000915	INFO 	Sent 1300 packets
+14.000915	INFO 	Sent 1400 packets
+15.000915	INFO 	Sent 1500 packets
+16.000915	INFO 	Sent 1600 packets
+17.000915	INFO 	Sent 1700 packets
+18.000915	INFO 	Sent 1800 packets
+19.000915	INFO 	Sent 1900 packets
+20.000915	INFO 	Sent 2000 packets
 ```
 
 # About the project
