@@ -67,29 +67,29 @@ As stated in Standard-6.3.6, in a TSCH PAN, the Enhanced Beacon frames contain t
     <img width="250" src="img/eb_ie_sync.png">
 </p>
 
-<p style="margin-left:2em;">
 Implementation of this Information Element can be found in the following files: 
 <ul style="margin-left:2em;list-style-type: circle;">
     <li>Parsing from buffer : <code>dot15d4/dot15d4-frame/src/ie/nested.rs</code> (from <i>line 374</i>)
     <li>Emitting from structure to buffer : <code>dot15d4/dot15d4-frame/src/repr/ie/nested.rs</code> (from <i>line 119</i>)</li>
 </ul>
-</p>
 
 
 * **TSCH Timeslot IE**, as described in Standard-7.4.4.4, containing timeslot information describing when to expect a frame to be transmitted and when to send an acknowledgment. The frame format is shown in the following figure :
 
 
+<dl><dd><dl><dd>
+</dd></dl></dd></dl>
 <p align="center" width="100%">
     <img width="700" src="img/eb_ie_timeslot.png">
 </p>
 
-<p style="margin-left:2em;">
+<dl><dd><dl><dd>
 Implementation of this Information Element can be found in the following files: 
 <ul style="margin-left:2em;list-style-type: circle;">
-    <li>Parsing from buffer : <code>dot15d4/dot15d4-frame/src/ie/nested.rs</code> (from <i>line 455</i>)
+    <li>Parsing from buffer : <code>dot15d4/dot15d4-frame/src/ie/nested.rs</code> (from <i>line 455</i>)</li>
 <li>Emitting from structure to buffer : <code>dot15d4/dot15d4-frame/src/repr/ie/nested.rs</code> (from <i>line 359</i>)</li>
 </ul>
-</p>
+</dd></dl></dd></dl>
 
 * **TSCH Slotframe and Link IE**, as described in Standard-7.4.4.3, containing initial link and slotframe information so new devices know when to listen for transmissions from the advertising device and when they can transmit to the advertising device. The format of the Information Element is illustrated in the following figure :
 
@@ -97,37 +97,37 @@ Implementation of this Information Element can be found in the following files:
     <img width="520" src="img/eb_ie_slot_link.png">
 </p>
 
-<p style="margin-left:2em;">
-This format refers to <i>slotframe descriptor</i>, which format is shown in the following figure:
-</p>
+<dl><dd><dl><dd>
+This format refers to a <i>slotframe descriptor</i>, whose format is shown in the following figure:
+</dd></dl></dd></dl>
 
 <p align="center" width="100%">
     <img width="520" src="img/eb_ie_slot_link_slotframe.png">
 </p>
 
-<p style="margin-left:2em;">
+<dl><dd><dl><dd>
 A <i>Link Information</i> is formatted as following :
-</p>
+</dd></dl></dd></dl>
 
 <p align="center" width="100%">
     <img width="340" src="img/eb_ie_slot_link_link_information.png">
 </p>
 
-<p style="margin-left:2em;">
+<dl><dd><dl><dd>
 Finally, the <i>Link Options</i> field is a 1-byte field defined as the following :
-</p>
+</dd></dl></dd></dl>
 
 <p align="center" width="100%">
     <img width="520" src="img/eb_ie_slot_link_link_options.png">
 </p>
 
-<p style="margin-left:2em;">
+<dl><dd><dl><dd>
 Implementation of this Information Element and the different illustrated objects can be found in the following files: 
 <ul style="margin-left:2em;list-style-type: circle;">
-    <li>Parsing from buffer : <code>dot15d4/dot15d4-frame/src/ie/nested.rs</code> (from <i>line 916</i>)
+    <li>Parsing from buffer : <code>dot15d4/dot15d4-frame/src/ie/nested.rs</code> (from <i>line 916</i>)</li>
     <li>Emitting from structure to buffer : <code>dot15d4/dot15d4-frame/src/repr/ie/nested.rs</code> (from <i>line 151</i>)</li>
 </ul>
-</p>
+</dd></dl></dd></dl>
 
 * **Channel hopping IE**, as described in Standard-7.4.4.31, containing channel hopping information.
 
@@ -135,13 +135,13 @@ Implementation of this Information Element and the different illustrated objects
     <img width="640" src="img/eb_ie_hopping.png">
 </p>
 
-<p style="margin-left:2em;">
+<dl><dd><dl><dd>
 Implementation of this Information Element can be found in the following files: 
 <ul style="margin-left:2em;list-style-type: circle;">
     <li>Parsing from buffer : <code>dot15d4/dot15d4-frame/src/ie/nested.rs</code> (from <i>line 1247</i>)
     <li>Emitting from structure to buffer : <code>dot15d4/dot15d4-frame/src/repr/ie/nested.rs</code> (from <i>line 439</i>)</li>
 </ul>
-</p>
+</dd></dl></dd></dl>
 
 #### Enhanced-Acknowledgment
 
@@ -155,13 +155,13 @@ This Time Correction Information element is composed of the Time Sync Info field
     <img width="120" src="img/eb_ie_time_correction.png">
 </p>
 
-<p style="margin-left:2em;">
+<dl><dd><dl><dd>
 Implementation of this Information Element can be found in the following files: 
 <ul style="margin-left:2em;list-style-type: circle;">
-    <li>Parsing from buffer : <code>dot15d4/dot15d4-frame/src/ie/headers.rs</code> (from <i>line 340</i>)
+    <li>Parsing from buffer : <code>dot15d4/dot15d4-frame/src/ie/headers.rs</code> (from <i>line 340</i>)</li>
     <li>Emitting from structure to buffer : <code>dot15d4/dot15d4-frame/src/repr/ie/headers.rs</code> (from <i>line 84</i>)</li>
 </ul>
-</p>
+</dd></dl></dd></dl>
 
 ### b) Parsing Tool
 
@@ -377,9 +377,9 @@ In `dot15d4`, the logic is separated in two distinct parts :
 * `dot15d4/mac` : the MAC sublayer logic of 802.15.4
 * `dot15d4/phy` : the PHY sublayer logic of 802.15.4
 
-Each part defines a task that run concurrently and communicate with each other through a channel for passing frames and commands.
+Each part defines a task that runs and communicate with each other via a  single-message channel for passing frames and commands.
 
-The entry point for initializing the MAC/PHY stack is found in :
+The entry point for initializing of the MAC/PHY stack is found in :
 <ul style="margin-left:2em;list-style-type: circle;">
     <li><code>dot15d4/dot15d4/src/lib.rs</code> (from <i>line 60</i>)
 </ul>
@@ -388,8 +388,8 @@ The entry point for initializing the MAC/PHY stack is found in :
 
 `dot15d4/mac` defines two services that are specified in the standard :
 
-* MAC Layer Management Entity (**MLME**) : This entity provides the service interfaces through which layer management may be invoked
-* MAC common part sublayer (**MCPS**) : This provides data service
+* MAC Layer Management Entity (**MLME**) : This entity provides the service interfaces through which layer management may be invoked (by upper layer);
+* MAC common part sublayer (**MCPS**) : This provides data service (sending/receiving frames).
 
 These two services provide the interface between the next higher layer and the PHY sublayer. It receives MAC requests from higher layer and sends MAC indication to higher layer.
 
