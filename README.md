@@ -67,18 +67,18 @@ As stated in Standard-6.3.6, in a TSCH PAN, the Enhanced Beacon frames contain t
     <img width="250" src="img/eb_ie_sync.png">
 </p>
 
+<dl><dd><dl><dd>
 Implementation of this Information Element can be found in the following files: 
 <ul style="margin-left:2em;list-style-type: circle;">
     <li>Parsing from buffer : <code>dot15d4/dot15d4-frame/src/ie/nested.rs</code> (from <i>line 374</i>)
     <li>Emitting from structure to buffer : <code>dot15d4/dot15d4-frame/src/repr/ie/nested.rs</code> (from <i>line 119</i>)</li>
 </ul>
+</dd></dl></dd></dl>
 
 
 * **TSCH Timeslot IE**, as described in Standard-7.4.4.4, containing timeslot information describing when to expect a frame to be transmitted and when to send an acknowledgment. The frame format is shown in the following figure :
 
 
-<dl><dd><dl><dd>
-</dd></dl></dd></dl>
 <p align="center" width="100%">
     <img width="700" src="img/eb_ie_timeslot.png">
 </p>
